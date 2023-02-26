@@ -1,29 +1,22 @@
-import { federation } from '@module-federation/vite';
-import { createEsBuildAdapter } from '@softarc/native-federation-esbuild';
-import { reactReplacements } from '@softarc/native-federation-esbuild/src/lib/react-replacements';
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import federation from '@originjs/vite-plugin-federation'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig(async ({ command }) => ({
 	plugins: [
-		await federation({
-			options: {
-				workspaceRoot: __dirname,
-				outputPath: 'dist',
-				tsConfig: 'tsconfig.json',
-				federationConfig: 'federation.cjs',
-				verbose: false,
-				dev: command === 'serve',
-			},
-			adapter: createEsBuildAdapter({ plugins: [], fileReplacements: reactReplacements.dev }),
-		}),
 		react(),
+		federation({
+			name: 'main',
+			remotes: {
+				'remote-widgets-wbs': 'http://localhost:3001/assets/remote-entry.js',
+			},
+			shared: ['react','react-dom'],
+		}),
 	],
-	server: {
-		fs: {
-			allow: [
-				'.',
-			],
-		},
+	build: {
+		modulePreload: false,
+		target: 'esnext',
+		minify: false,
+		cssCodeSplit: false
 	},
 }));

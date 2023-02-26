@@ -1,17 +1,9 @@
-import { loadRemoteModule } from '@softarc/native-federation';
-import { lazy, Suspense } from 'react';
+// @ts-ignore
+import Wbs from 'remote-widgets-wbs/wbs'
 
-export default () => {
-	const Wbs = lazy(
-		async () => await loadRemoteModule('remoteWidgetsWbs', 'wbs')
-	)
-
-	return (
-		<>
-			<h1>main.host</h1>
-			<Suspense fallback='loading...'>
-				<Wbs />
-			</Suspense>
-		</>
-	);
-};
+export default () => (
+	<>
+		<h1>main.host</h1>
+		<Wbs />
+	</>
+)

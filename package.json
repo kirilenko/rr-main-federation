@@ -2,19 +2,18 @@
 	"name": "rr",
 	"private": true,
 	"version": "0.0.0",
-	"workspaces": [
-		"./main.host",
-		"./remote/widgets/wbs.host"
-	],
-	"scripts": {
-		"setup": "scripts/nvm-use.sh && npm --prefix ./main.host i && npm --prefix ./remote/widgets/wbs.host i",
-		"postinstall:deps": "npm --prefix ./main.host run build && npm --prefix ./remote/widgets/wbs.host run build",
-		"serve:main-host": "npm --prefix ./main.host run dev",
-		"serve:remote-widgets-wbs-host": "npm --prefix ./remote/widgets/wbs.host run dev",
-		"build:main-host": "npm --prefix ./main.host run build",
-		"build:remote-widgets-wbs-host": "npm --prefix ./remote/widgets/wbs.host run build",
-		"preview:main-host": "npm --prefix ./main.host run preview",
-		"preview:remote-widgets-wbs-host": "npm --prefix ./remote/widgets/wbs.host run preview"
+	"engines": {
+		"node": "18",
+		"pnpm": "7"
 	},
-	"devDependencies": {}
+	"scripts": {
+		"setup": "scripts/nvm-use.sh && pnpm i",
+		"postsetup": "pnpm build",
+		"dev": "pnpm --prefix ./main.host dev & pnpm --parallel --filter \"./remote/**/*.host\" preview",
+		"build": "pnpm --parallel build",
+		"preview": "pnpm --parallel preview"
+	},
+	"devDependencies": {
+		"@originjs/vite-plugin-federation": "^1.2.1"
+	}
 }
