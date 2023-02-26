@@ -1,19 +1,18 @@
 import { defineConfig } from 'vite'
-import federation from '@originjs/vite-plugin-federation'
 import react from '@vitejs/plugin-react'
+import federation from '@originjs/vite-plugin-federation'
 
 export default defineConfig(({ mode }) => ({
 	plugins: [
 		react(),
 		federation({
-			name: 'main',
-			remotes: {
-				'remote-widgets-wbs': 'http://localhost:3001/assets/remote-entry.js',
-				'remote-shared-ui': 'http://localhost:3002/assets/remote-entry.js',
+			name: "remote-shared-ui",
+			filename: "remote-entry.js",
+			exposes: {
+				'./ui': './src/shared/ui'
 			},
-			shared: ['react','react-dom'],
-		}),
-		// tsconfigPaths() from vite-tsconfig-paths does not work with federation
+			shared: ['react','react-dom']
+		})
 	],
 	build: {
 		modulePreload: false,
@@ -27,7 +26,7 @@ export default defineConfig(({ mode }) => ({
 			'@entities': '/src/entities',
 			'@pages': '/src/pages',
 			'@shared': '/src/shared',
-		  '@widgets': '/src/widgets',
+			'@widgets': '/src/widgets',
 		},
 	},
 }));
