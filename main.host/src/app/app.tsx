@@ -1,5 +1,4 @@
-// @ts-ignore
-import Wbs from 'remote-widgets-wbs/wbs'
+import Wbs from '@widgets/wbs'
 
 export default () => (
 	<>
