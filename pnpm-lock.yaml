@@ -29,7 +29,7 @@ importers:
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.14.2
 
-  remote/shared/ui.host:
+  remote/shared.ui.host:
     specifiers:
       '@types/node': '18'
       '@types/react': ^18.0.26
@@ -50,7 +50,7 @@ importers:
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.14.2
 
-  remote/widgets/wbs.host:
+  remote/widgets.wbs.host:
     specifiers:
       '@types/node': '18'
       '@types/react': ^18.0.26
