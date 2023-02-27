@@ -1,0 +1,3 @@
+[submodule "remote/shared.ui.host"]
+	path = remote/shared.ui.host
+	url = git@github.com:kirilenko/rr-shared-ui-host.git
