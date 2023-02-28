@@ -1,1 +1,0 @@
-import{importShared as o}from"./__federation_fn_import.js";import{j as r,H as a}from"./header-3a0d81cf.js";import{r as d}from"./index-74a91aee.js";var t={},e=d;t.createRoot=e.createRoot,t.hydrateRoot=e.hydrateRoot;const{StrictMode:m}=await o("react");t.createRoot(document.getElementById("root")).render(r(m,{children:r(a,{title:"shared.ui.header"})}));

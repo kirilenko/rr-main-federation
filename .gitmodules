@@ -1,6 +1,7 @@
-[submodule "remote/shared.ui.host"]
-	path = remote/shared.ui.host
-	url = git@github.com:kirilenko/rr-shared-ui-host.git
 [submodule "remote/widgets.wbs.host"]
 	path = remote/widgets.wbs.host
 	url = git@github.com:kirilenko/rr-widgets-wbs-host.git
+
+[submodule "remote/shared.host"]
+	path = remote/shared.host
+	url = git@github.com:kirilenko/rr-shared-host.git
