@@ -7,7 +7,7 @@
 		"pnpm": "7"
 	},
 	"scripts": {
-		"setup": "scripts/nvm-use.sh && pnpm i",
+		"setup": "./main.host/scripts/nvm-use.sh && pnpm i",
 		"postsetup": "pnpm build",
 		"dev": "pnpm --prefix ./main.host dev & pnpm --parallel --filter \"./remote/*.host\" preview",
 		"build": "pnpm --parallel build",
