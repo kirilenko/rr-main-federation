@@ -3,21 +3,27 @@ import { Global } from '@emotion/react'
 
 import { DemoButton, DemoHeader } from '@shared/ui'
 import Wbs from '@widgets/wbs'
+import { useDemoLogger } from './providers/demo-logger'
+import { withProviders } from './providers'
 
 import StyledApp from './styles/app.style'
 import GlobalStyles from './styles/global.style'
 
-const App: FC = () => (
-  <>
-    <Global styles={GlobalStyles} />
-    <StyledApp>
-      <h1>main.host</h1>
-      <DemoHeader title="shared.ui.header in main.host" />
-      <DemoButton title="shared.ui.button in main.wbs" />
-      <Wbs />
-    </StyledApp>
-    <h1>main.host</h1>
-  </>
-)
+const App: FC = () => {
+  useDemoLogger().log('App.render log from DemoLogger')
 
-export default App
+  return (
+    <>
+      <Global styles={GlobalStyles} />
+      <StyledApp>
+        <h1>main.host</h1>
+        <DemoHeader title="shared.ui.header in main.host" />
+        <DemoButton title="shared.ui.button in main.wbs" />
+        <Wbs />
+      </StyledApp>
+      <h1>main.host</h1>
+    </>
+  )
+}
+
+export default withProviders(App)
