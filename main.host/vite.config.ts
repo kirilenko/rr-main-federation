@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
     federation({
       name: 'main',
       remotes: {
-        'remote-shared-ui': 'http://localhost:3002/assets/remote-entry.js',
+        'remote-common': 'http://localhost:3002/assets/remote-entry.js',
         'remote-widgets-wbs': 'http://localhost:3001/assets/remote-entry.js',
       },
       shared: ['react', 'react-dom'],

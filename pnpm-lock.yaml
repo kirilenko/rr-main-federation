@@ -85,7 +85,7 @@ importers:
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.14.2
 
-  remote/shared.host:
+  remote/common.host:
     specifiers:
       '@emotion/react': ^11.9.0
       '@emotion/styled': ^11.8.1
@@ -1410,6 +1410,7 @@ packages:
 
   /arity-n/1.0.4:
     resolution: {integrity: sha512-fExL2kFDC1Q2DUOx3whE/9KoN66IzkY4b4zUHUBFM1ojEYjZZYDcUW3bek/ufGionX9giIKDC5redH2IlGqcQQ==}
+    dev: false
 
   /array-includes/3.1.6:
     resolution: {integrity: sha512-sgTbLvL6cNnw24FnbaDyjmvddQ2ML8arZsgaJhoABMoplz/4QRhtrYS+alr1BUM1Bwp6dhx8vVCBSLG+StwOFw==}
