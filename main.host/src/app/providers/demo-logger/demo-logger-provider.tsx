@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren, useMemo } from 'react'
 
 import {
   DemoLoggerContext,
@@ -10,10 +10,12 @@ type DemoLoggerProviderProps = PropsWithChildren<{}>
 export const DemoLoggerProvider: FC<DemoLoggerProviderProps> = ({
   children,
 }) => {
-  const value: DemoLoggerContextValue = {
-    // tmp fn:
-    log: (p) => console.log(p), // eslint-disable-line no-console
-  }
+  const value: DemoLoggerContextValue = useMemo(
+    () => ({
+      log: (p) => console.log(p), // eslint-disable-line no-console
+    }),
+    [],
+  )
 
   return (
     <DemoLoggerContext.Provider {...{ value }}>
