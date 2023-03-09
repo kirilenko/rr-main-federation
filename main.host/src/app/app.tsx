@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Global } from '@emotion/react'
 
+import { useEnvResolver } from '@app/providers'
 import { DemoButton, DemoHeader } from '@shared/ui'
 import Wbs from '@widgets/wbs'
 import { useDemoLogger } from './providers/demo-logger'
@@ -11,6 +12,7 @@ import GlobalStyles from './styles/global.style'
 
 const App: FC = () => {
   useDemoLogger().log('App.render log from DemoLogger')
+  const { getEnv } = useEnvResolver()
 
   return (
     <>
@@ -22,6 +24,7 @@ const App: FC = () => {
         <Wbs />
       </StyledApp>
       <h1>main.host</h1>
+      <div style={{ display: 'none' }}>{getEnv('VITE_TIMESTAMP')}</div>
     </>
   )
 }
