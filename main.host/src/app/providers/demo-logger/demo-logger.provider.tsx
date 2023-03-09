@@ -3,7 +3,7 @@ import { FC, PropsWithChildren, useMemo } from 'react'
 import {
   DemoLoggerContext,
   DemoLoggerContextValue,
-} from './demo-logger-context'
+} from './demo-logger.context'
 
 type DemoLoggerProviderProps = PropsWithChildren<{}>
 

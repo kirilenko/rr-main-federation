@@ -1,8 +1,8 @@
 import { ComponentType } from 'react'
 
-import { DemoLoggerProvider } from './demo-logger-provider'
+import { DemoLoggerProvider } from './demo-logger.provider'
 
-export const withDemoLoggerProvider =
+export const withDemoLogger =
   <Props extends {}>(Component: ComponentType<Props>) =>
   (props: Props) =>
     (
