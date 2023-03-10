@@ -9,7 +9,10 @@
 	"scripts": {
 		"setup": "./main.host/scripts/nvm-use.sh && pnpm i",
 		"postsetup": "pnpm build",
-		"dev": "pnpm --prefix ./main.host dev & pnpm --parallel --filter \"./remote/*.host\" preview",
+		"dev": "pnpm --prefix ./main.host dev & pnpm --parallel --filter \"./remote/*.host\" preview:dev",
+		"format": "pnpm --parallel format",
+		"build:dev": "pnpm --parallel build:dev",
+		"preview:dev": "pnpm --parallel preview:dev",
 		"build": "pnpm --parallel build",
 		"preview": "pnpm --parallel preview"
 	},

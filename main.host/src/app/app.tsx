@@ -24,7 +24,9 @@ const App: FC = () => {
         <Wbs />
       </StyledApp>
       <h1>main.host</h1>
-      <div style={{ display: 'none' }}>{getEnv('VITE_TIMESTAMP')}</div>
+      <div style={{ display: 'none' }}>{`${getEnv(
+        'VITE_TIMESTAMP',
+      )} / mode: ${getEnv('MODE')}`}</div>{' '}
     </>
   )
 }
